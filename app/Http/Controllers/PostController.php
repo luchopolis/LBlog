@@ -70,9 +70,10 @@ class PostController extends Controller
 
         if($request->hasFile('Image')){
             if(Storage::disk('outLaravel')->exists($name)){
-                //Storage::disk('outLaravel')->delete($name);
-                //$request->Image->storeAs('',$name,'outLaravel');
-                return redirect('home');
+                Storage::disk('outLaravel')->delete($name);
+                $request->Image->storeAs('',$name,'outLaravel');
+                $this->Image = $name;
+                //return redirect('home');
             }else{
                         //Carpeta ---- NombreArch ---- Disk
                 if($request->Image->storeAs('',$name,'outLaravel')){
@@ -82,14 +83,14 @@ class PostController extends Controller
                 }
             }
         }else{
-            return redirect('home');
+            //return redirect('home');
         }
         //dd(Storage::disk('outLaravel')->exists($name));
         $NewPost = new post();
         $NewPost->Title = $request->input('title');
         $NewPost->Extract = $request->input('extract');
         $NewPost->Content = $request->input('content');
-        $NewPost->Imagen = $this->Image;
+        $NewPost->Imagen = $name;
         $NewPost->user_id = $userId;
         $NewPost->category_id = $request->input('category');
         $NewPost->save();

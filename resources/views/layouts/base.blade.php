@@ -17,9 +17,23 @@
     <!-- Custom styles for this template -->
     <link href="{{ asset('styles/blog-home.css' )}}" rel="stylesheet">
 
-    
+
+    <!-- TINY MCE-->
+    <script src="https://cdn.tiny.cloud/1/jwmu4wthnjhdibxn973clzvust2moisji20s4lt54saxo2jm/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
 
 
+    <!-- Remove border color TinyMCE-->
+
+    <style>
+        .tox-tinymce{
+            border: none !important;
+            border-bottom: none !important;
+        }
+
+        .tox-statusbar{
+            display: none !important;
+        }
+    </style>
 </head>
 
 <body>
@@ -169,11 +183,13 @@
 
     //document.addEventListener('DOMContentLoaded',wait());
     window.onload = () => {
-        //console.log("Documento cargado");
-        /*let loader = document.getElementById('loadergif');
-
-        loader.style.visibility = 'hidden';
-        loader.style.display = 'none';*/
+        tinymce.init({
+            selector:"#tiny-body",
+            menubar:false,
+            toolbar: false,
+            plugins: [ 'quickbars' ],
+            readonly : 1
+        });
 
     };
 </script>

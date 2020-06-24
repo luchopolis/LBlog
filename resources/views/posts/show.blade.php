@@ -9,12 +9,13 @@
                     <h2 class="card-title">{{ $Post->Title }}</h2>
                 </div>
                 <!-- Ruta imagen defecto http://placehold.it/750x300-->
-                <div class="col-12 text-center">
-                    <img class="img-fluis card-img-top m-2" style="width:70vh;height:50vh" src="{{ $AppBasePublic }}{{ $Post->Imagen }}" alt="Card image cap">
-                </div>
+               
 
                 <div class="card-body">
-                    <p class="card-text">{{ $Post->Content}}</p>
+                    
+                    <textarea style="width: 100%; height: 450px" name="content" id="tiny-body" cols="30"
+                                    rows="10">{{ $Post->Content}}</textarea>
+  
                 </div>
                 <div class="card-footer text-muted">
                     Posted on {{ $Post->created_at }}, by {{ $Post->user["UserName"] }}
