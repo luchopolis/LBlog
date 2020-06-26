@@ -25,6 +25,28 @@
 
 
 
+    <style>
+        .successPost{
+            width: 50%;
+            position: absolute;
+            bottom: 25%;
+            left: 25%;
+            animation: hide 7s forwards;
+            
+            
+        }
+
+        @keyframes hide{
+            0%{
+                opacity: 1;
+            }
+
+            100%{
+                opacity: 0;
+            }
+        }
+
+    </style>
 </head>
 <body>
     <div id="app">

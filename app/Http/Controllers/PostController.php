@@ -59,15 +59,22 @@ class PostController extends Controller
     {
         $this->Image = null;
 
-
         //Almacena en Storage/example el Image es el name del input
         //echo $request->Image->store('example');
         //$request->Image->store(Config::get('constans.StorageBasePublic').'/laravel');
         //echo $this->Image = basename($request->file('Image')->getClientOriginalName());
         //$request->Image->store('example','outLaravel');
 
-        $name = $request->Image->getClientOriginalName();
+        
 
+        $this->validate($request,[
+            "title" => "required",
+            "extract" => "required",
+            "content" => "required",
+            "category" => "required"
+        ]);
+
+        $name = $request->Image->getClientOriginalName();
         if($request->hasFile('Image')){
             if(Storage::disk('outLaravel')->exists($name)){
                 Storage::disk('outLaravel')->delete($name);
@@ -83,7 +90,7 @@ class PostController extends Controller
                 }
             }
         }else{
-            //return redirect('home');
+            return redirect('home');
         }
         //dd(Storage::disk('outLaravel')->exists($name));
         $NewPost = new post();
@@ -95,7 +102,8 @@ class PostController extends Controller
         $NewPost->category_id = $request->input('category');
         $NewPost->save();
 
-        return redirect('home');
+        //Enviar una respuesta con redirect, forma parte de un response
+        return redirect('home')->with('newPost','Nuevo post creado con exito');
     }
 
     /**
@@ -128,8 +136,14 @@ class PostController extends Controller
         $this->middleware('Auth');
 
         $post = post::find($id);
+        $Categories = category::all();
 
-        return view('posts.edit',compact('post'));
+        $data = [
+            "post" => $post,
+            "Categories" => $Categories
+        ];
+
+        return view('posts.edit',$data);
     }
 
     /**
@@ -139,9 +153,43 @@ class PostController extends Controller
      * @param  \App\post  $post
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, post $post)
+    public function update(Request $request, $id)
     {
-        //
+
+        $lastImage = post::find($id);
+
+        //echo $lastImage->Imagen;
+        $name = "";
+
+        if($request->hasFile('Image')){
+            $name = $request->Image->getClientOriginalName();
+            if(Storage::disk('outLaravel')->exists($name)){
+                Storage::disk('outLaravel')->delete($name);
+                $request->Image->storeAs('',$name,'outLaravel');
+                $this->Image = $name;
+            }else{
+                if($request->Image->storeAs('',$name,'outLaravel')){
+                    $this->Image = $name;
+                }else{
+                    $this->Image = $lastImage->Imagen;
+                }
+            }
+        }else{
+            $this->Image = $lastImage->Imagen;  
+        }
+
+        $NewPost = post::find($id);
+        $NewPost->Title = $request->input('Title');
+        $NewPost->Extract = $request->input('Extract');
+        $NewPost->Content = $request->input('content');
+        $NewPost->Imagen = $this->Image;
+        $NewPost->category_id = $request->input('category');
+        $NewPost->save();
+
+        return redirect('home');
+
+        
+        
     }
 
     /**

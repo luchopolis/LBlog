@@ -18,13 +18,15 @@
                                     <div class="col">
                                         <div class="form-group">
                                             <label for="">Titulo</label>
-                                            <input type="text" id="title" name="title" class="form-control" placeholder="Titulo">
+                                            <input type="text" id="title" name="title" class="form-control" placeholder="Titulo" value="{{ old('title') }}">
+                                            {!! $errors->first('title','<span class="error">:message</span>') !!}
                                         </div>
                                     </div>
                                     <div class="col">
                                         <div class="form-group">
                                             <label for="">Extracto</label>
-                                            <input type="text" id="extract" name="extract" class="form-control" placeholder="Extracto a mostrar">
+                                            <input type="text" id="extract" name="extract" class="form-control" placeholder="Extracto a mostrar" value="{{ old('extract') }}">
+                                            {!! $errors->first('extract', '<span class="error">:message</span>') !!}
                                         </div>
                                     </div>
                                 </div>

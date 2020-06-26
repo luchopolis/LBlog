@@ -46,7 +46,9 @@ Route::get('/post/{id}/confirmDelete','PostController@destroy');
 Route::post('/post/{useId}/create','PostController@store');
 Route::post('/post/saveImage','PostController@savePost');
 
-//|---------- ENDE POST ---------|
+//|---------- END POST ---------|
+
+Route::post('/post/{postId}/update','PostController@update');
 
 
 Auth::routes();
