@@ -105,6 +105,7 @@
 <!-- <div id="loadergif" class="col-12">
       <img src="{{ asset('src/loader.gif') }}" alt="gif loader">
     </div> -->
+
 @yield('content')
 
 
@@ -140,9 +141,9 @@
 
 </div>
 <!-- /.row -->
-
-</div>
 @yield('comments')
+</div>
+
 <!-- /.container -->
 
 <!-- Footer -->
