@@ -1,7 +1,7 @@
 @extends('layouts.base')
 
 @section('content')
-  
+        @foreach($Post as $Post)
         <div class="row">
             <div class="col-sm-12 col-md-8 h-100">
                 <div class="mb-4 mt-4">
@@ -23,7 +23,7 @@
                 
                 </div>
             </div>
-
+        @endforeach
    
 @endsection
 @section('comments')

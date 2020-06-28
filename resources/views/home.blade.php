@@ -39,7 +39,7 @@
                                         </div>
                                         <div class="col-6 mt-2">
                                             <button class="btn text-dark" >
-                                                <a href="/post/{{ $post->id }}" style="text-decoration: none" class="text-dark">
+                                                <a href="/post/{{ $post->slug }}" style="text-decoration: none" class="text-dark">
                                                     <i class="fas fa-eye"></i>
                                                 </a>
                                             </button>

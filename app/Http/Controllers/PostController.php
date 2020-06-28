@@ -11,6 +11,8 @@ use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\FileAdmin;
 use Illuminate\Support\Facades\Storage;
 
+use Illuminate\Support\Str;
+
 class PostController extends Controller
 {
 
@@ -105,6 +107,7 @@ class PostController extends Controller
         $NewPost->Imagen = $name;
         $NewPost->user_id = $userId;
         $NewPost->category_id = $request->input('category');
+        $NewPost->slug = Str::slug($request->input('title','-'));
         $NewPost->save();
 
         //Enviar una respuesta con redirect, forma parte de un response
@@ -117,18 +120,20 @@ class PostController extends Controller
      * @param  \App\post  $post
      * @return \Illuminate\Http\Response
      */
-    public function show(post $post)
+    public function show($slug)
     {
-        $Publicacion = post::find($post->id);
+        //$Publicacion = post::find($post->id);
+        $Publicacion = post::where('slug','=',$slug)->get();
         $Categories = category::all();
-        $Comments = DB::table('comments')->get()->where('post_id','=',$post->id);
+        $Comments = DB::table('comments')->get()->where('post_id','=',$Publicacion[0]->id);
         $data = [
             "Categories" => $Categories,
             "Post" => $Publicacion,
-            "AppBasePublic" => Config::get('constans.AppBasePublic'),
-            "Comments" => $Comments
+            "Comments" => $Comments,
+            "AppBasePublic" => Config::get('constans.AppBasePublic')
         ];
 
+    
         return view('posts.show',$data);
     }
 
@@ -191,6 +196,7 @@ class PostController extends Controller
         $NewPost->Content = $request->input('content');
         $NewPost->Imagen = $this->Image;
         $NewPost->category_id = $request->input('category');
+        $NewPost->slug = Str::slug($request->input('title','-'));
         $NewPost->save();
 
         return redirect('home');
@@ -215,6 +221,7 @@ class PostController extends Controller
             Storage::disk('outLaravel')->delete($post->Imagen);
             $post->delete();
         }
+        $post->delete();
 
         return redirect('home');
     }

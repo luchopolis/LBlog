@@ -37,6 +37,7 @@ Route::get('/categories','CategoryController@index');
 Route::get('/posts', 'PostController@index');
 Route::get('/post/{id}/confirmDelete','PostController@destroy');
 
+//Route::get('/post/{slug}','PostController@show');
 
 // |----------- END GET ------------- |
 
