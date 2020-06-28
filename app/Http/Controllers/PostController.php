@@ -13,6 +13,11 @@ use Illuminate\Support\Facades\Storage;
 
 class PostController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth')->except(['show','index']);
+    }
     /**
      * Display a listing of the resource.
      *
@@ -43,7 +48,7 @@ class PostController extends Controller
     public function create()
     {
         //Contenido Personalizado
-        $this->middleware('Auth');
+       
        return view('posts.create',[
            "Categories" => category::all()
        ]);
@@ -116,10 +121,12 @@ class PostController extends Controller
     {
         $Publicacion = post::find($post->id);
         $Categories = category::all();
+        $Comments = DB::table('comments')->get()->where('post_id','=',$post->id);
         $data = [
             "Categories" => $Categories,
             "Post" => $Publicacion,
-            "AppBasePublic" => Config::get('constans.AppBasePublic')
+            "AppBasePublic" => Config::get('constans.AppBasePublic'),
+            "Comments" => $Comments
         ];
 
         return view('posts.show',$data);
@@ -133,8 +140,8 @@ class PostController extends Controller
      */
     public function edit($id)
     {
-        $this->middleware('Auth');
-
+     
+        
         $post = post::find($id);
         $Categories = category::all();
 
@@ -200,11 +207,13 @@ class PostController extends Controller
      */
     public function destroy($id)
     {
-        $this->middleware('Auth');
+     
+
         $post = post::find($id);
+        
         if(Storage::disk('outLaravel')->exists($post->Imagen)){
             Storage::disk('outLaravel')->delete($post->Imagen);
-            post::find($id)->delete();
+            $post->delete();
         }
 
         return redirect('home');
