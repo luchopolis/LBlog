@@ -23,7 +23,7 @@
                         <div class="card-body">
                             <h2 class="card-title">{{ $Publicacion->Title }}</h2>
                             <h6>{{ $Publicacion->Extract }}</h6>
-                            <a href="/post/{{ $Publicacion->id }}" class="btn btn-primary">Seguir leyendo &rarr;</a>
+                            <a href="/post/{{ $Publicacion->slug }}" class="btn btn-primary">Seguir leyendo &rarr;</a>
                         </div>
                         <div class="card-footer text-muted">
                          Posted on {{ $Publicacion->created_at }}, by {{ $Publicacion->user['UserName'] }}
