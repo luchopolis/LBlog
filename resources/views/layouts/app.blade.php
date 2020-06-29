@@ -23,7 +23,7 @@
     <!-- FLoatBUtton Style-->
     <link href="{{ asset('css/floatbutton.css') }}" rel="stylesheet">
 
-
+    <link href="{{ asset('css/profile.css') }}" rel="stylesheet">
 
     <style>
         .successPost{
@@ -89,6 +89,9 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="/profile/{{ Auth::user()->id }}">
+                                        Profile
+                                    </a>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">

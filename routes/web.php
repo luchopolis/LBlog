@@ -1,5 +1,7 @@
 <?php
 
+use App\profile;
+use App\User;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -55,7 +57,9 @@ Route::post('/comment/{post_id}/create','CommentController@store');
 
 Route::post('/post/{postId}/update','PostController@update');
 
+/********** !! PROFILE !!*************** */
 
+Route::get('/profile/{user}','profileController@index');
 
 Auth::routes();
 

@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=Bitter&display=swap');
+
+.UpInfo{
+    width: 100%;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Profile-Up{
+  text-align: center;
+}
+
+.Profile-Up h4{
+    font-family: 'Bitter', serif;
+    font-weight: bold;
+    font-size: 2rem;
+}
+
+.Profile-Up h6{
+    font-family: 'Bitter', serif;
+    font-size:1.5;
+}
+
+.DownInfo{
+    position: relative;
+    background-color: white;
+    width: 100%;
+    height: 200px;
+    border-radius: 1%;
+    box-shadow: 0px -5px 0px 0px rgba(86, 150, 3, 0.651);
+    border-bottom: 2px solid rgba(0,0,0,0.6);
+    
+}
+
+#UpDownTitle { position: absolute; width: 100%; height: 40px; top: 1.5rem; left: 1.5rem;}
+#UpDownTitle h6 { font-family: 'Bitter', serif; font-size:18px; font-weight: bold;}
+
+
+form{
+    display: flex;
+}
+
+.formProfile{
+    width: 100%;
+    position:absolute;
+    top:4rem;
+    left: 1.5rem;
+}
+.ProfileInputBox{
+    width: 47%;
+    margin-right: 15px;
+}
+
+.ProfileInputBox label{
+    font-family: 'Bitter', serif;
+}
+.ProfileInput{
+    border: 1px solid rgba(86, 150, 3, 0.4);
+    border-radius: 5px;
+    padding: 7px;
+    width: 100%;
+    outline-color: rgba(86, 150, 3, 0.6);
+}
+/*@media screen and (min-width:320px){
+    .formProfile{
+        left:0.7rem;
+    }
+}
+
+@media screen and (min-width:360px){
+    .ProfileInputBox{
+        width: 100%;
+    }
+}
+
+@media screen and (min-width:411px){
+    .ProfileInputBox{
+        width: 100%;
+    }
+}*/
