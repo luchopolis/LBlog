@@ -26,16 +26,7 @@
     <link href="{{ asset('css/profile.css') }}" rel="stylesheet">
 
     <style>
-        .successPost{
-            width: 50%;
-            position: absolute;
-            bottom: 25%;
-            left: 25%;
-            animation: hide 7s forwards;
-            
-            
-        }
-
+       
         .successProfile {
             width: 50%;
             position: absolute;
@@ -122,13 +113,7 @@
             @yield('content')
         </main>
     </div>
-    <div class="fab-container" >
-        <a href="/post/create" style="text-decoration: none;">
-            <div class="fab-icon-holder">
-                <i class="fas fa-plus"></i>
-            </div>
-        </a>
-    </div>
+
     <!-- JQUERY-->
     <script src="//ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 

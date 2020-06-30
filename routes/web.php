@@ -60,6 +60,9 @@ Route::post('/post/{postId}/update','PostController@update');
 /********** !! PROFILE !!*************** */
 
 Route::get('/profile/{user}','profileController@index');
+Route::get('/profile/{user}/show','profileController@show');
+Route::post('/profile/{user}','profileController@store');
+
 
 Auth::routes();
 

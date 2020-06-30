@@ -9,7 +9,7 @@
 
                     <h2 class="card-title">{{ $Post->Title }}</h2>
                     <div class="text-muted">
-                        by {!! '<span class="text-danger">' !!} {{ $Post->user["UserName"] }} {!! '</span>' !!} On {{ $Post->created_at->format('d/m/Y') }}
+                        by @<a href="/profile/{{ $Post->user["id"] }}/show">  {!! '<span class="text-danger">' !!} {{$Post->user["UserName"] }} {!! '</a>' !!} {!! '</span>' !!} </a> On {{ $Post->created_at->format('d/m/Y') }}
                     </div>
                     <!-- Ruta imagen defecto http://placehold.it/750x300-->
                 

@@ -27,29 +27,35 @@
     position: relative;
     background-color: white;
     width: 100%;
-    height: 200px;
+    height: 100%;
     border-radius: 1%;
     box-shadow: 0px -5px 0px 0px rgba(86, 150, 3, 0.651);
     border-bottom: 2px solid rgba(0,0,0,0.6);
     
 }
+.infoHead {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+#UpDownTitle {  padding:10px; width: 100%; height: 40px;}
+#UpDownTitle h6 { font-family: 'Bitter', serif; font-size:18px; font-weight: bold; margin-top:10px;}
+#UpDownTitle p {
 
-#UpDownTitle { position: absolute; width: 100%; height: 40px; top: 1.5rem; left: 1.5rem;}
-#UpDownTitle h6 { font-family: 'Bitter', serif; font-size:18px; font-weight: bold;}
+    color: rgb(68, 81, 155);
+} 
 
-
-form{
+.containerInputs{
     display: flex;
 }
 
 .formProfile{
     width: 100%;
-    position:absolute;
-    top:4rem;
-    left: 1.5rem;
+    padding: 10px;
+    margin-top:10px;
 }
 .ProfileInputBox{
-    width: 47%;
+    width: 50%;
     margin-right: 15px;
 }
 
@@ -63,6 +69,113 @@ form{
     width: 100%;
     outline-color: rgba(86, 150, 3, 0.6);
 }
+
+.BioBox{
+    margin-top: 10px;
+    margin-left: -10px;
+    padding: 10px;
+}
+
+.BioBox textarea {
+    width:100%;
+}
+
+.BioBox label { font-family: 'Bitter', serif; }
+
+#save {
+    font-size: 20px;
+    font-family: 'Bitter', serif;
+    background-color: rgba(86, 150, 3, 0.6);
+    border-color: rgba(86, 150, 3, 0.651);
+    width:100%;
+}
+
+
+
+/* SHOW VIEW */
+
+
+.up_profile_sidebar{
+    position: relative;
+    width: 100%;
+    height: 200px;
+}
+
+.up_profile_sidebar::before{
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: url('../src/Backprofile2.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.profile_user{
+    position: absolute;
+    font-family: 'Bitter',serif;
+    color:#000;
+    font-size: 30px;
+    top: 15%;
+    left: 45%;
+}
+
+.info_profile {
+    width: 100%;
+    height: 600px;
+   
+}
+.ContentProfile {
+    font-family: 'Bitter',serif;
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 5%;
+}
+
+.last_post {
+    width: 70%;
+}
+
+.last_post h5 {
+    width: 90%;
+    padding: 10px;
+    border-bottom: 1px solid rgba(0,0,0,0.6);
+}
+
+.biography {
+    width: 30%;
+}
+
+.biography h5 {
+    padding: 10px;
+}
+
+.biography p {
+    font-weight: normal;
+    font-size: 16px;
+    padding: 10px;
+}
+.content_profile_row {
+    margin: auto;
+    width: 80%;
+    display: flex;
+    justify-content: center;
+}
+
+.user_last_post {
+    margin-top:5%; 
+    width: 90%; 
+    height: 200px; 
+    background-color: rgb(255, 255, 255); 
+    border-radius: 1%;
+    box-shadow:0px -5px 0px 0px rgba(86, 150, 3, 0.6);
+    border-bottom: 2px solid rgba(0,0,0,0.6);
+}
+
+
+
+
+
 /*@media screen and (min-width:320px){
     .formProfile{
         left:0.7rem;

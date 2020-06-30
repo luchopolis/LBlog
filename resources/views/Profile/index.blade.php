@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.profile')
 @section('content')
     <!-- profile-->
 
@@ -12,38 +12,65 @@
             </div>
             <div class="DownInfo">
                 <div id="UpDownTitle">
-                    <h6>
-                        Account Info
-                    </h6>
+                    <div class="infoHead">
+                        <h6>
+                            Account Info
+                        </h6>
+                        <p><a href="/profile/{{ Auth::user()->id }}/show"><i class="far fa-id-badge"></i> View public profile </a></p>
+                    </div>
+                  
                 </div>
 
                 <div class="formProfile">
-                    <form>
-                        <div class="ProfileInputBox">
-                            <div>
-                                <label>
-                                    Name
-                                </label>
+                <form method="POST" action="/profile/{{ Auth::user()->id }}">
+                        @csrf
+                        <div class="containerInputs">
+                            <div class="ProfileInputBox">
+                                <div>
+                                    <label>
+                                        Name
+                                    </label>
+                                </div>
+                                
+                            <input class="ProfileInput" type="text" name="Name" placeholder="Name" value="{{ $Profile[0]->Full_Name }}">
                             </div>
-                            
-                        <input class="ProfileInput" type="text" name="Name" placeholder="Name" value="{{ $Profile[0]->Full_Name }}">
-                        </div>
-                        <div class="ProfileInputBox">
-                            <div>
-                                <label>
-                                    Email
-                                </label>
-                            </div>
+                            <div class="ProfileInputBox">
+                                <div>
+                                    <label>
+                                        Email
+                                    </label>
+                                </div>
+                               
+                            <input class="ProfileInput" type="email" name="email" placeholder="Email" value="{{ $email }}">
                            
-                        <input class="ProfileInput" type="email" name="email" placeholder="Email" value="{{ $email }}">
+                            </div>
                         </div>
+                       
+                        <hr>
+                        <div class="BioBox">
+                            <label for="">
+                                Biografia
+                            </label>
+                        <textarea name="Bio" class="ProfileInput" id="Bio" rows="10">{{ $Profile[0]->biography }}</textarea>
+                        </div>
+
+                        <input type="submit" id="save" name="save" class="btn btn-success" value="Guardar">
+                        
                     </form>  
 
                    
                 </div>
+
+               
                
             </div>
             
         </div>
     </div>
+
+    @if( session()->has('profile') )
+        <div class="">
+            <p class="alert alert-success successProfile">{{ session('profile') }}</p>
+        </div>
+    @endif
 @endsection

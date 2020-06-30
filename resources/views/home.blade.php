@@ -96,7 +96,7 @@
 
 @if( session()->has('newPost') )
     <div class="successPost">
-    <p class="alert alert-success">{{ session('newPost') }}</p>
+        <p class="alert alert-success">{{ session('newPost') }}</p>
     </div>
 @endif
  

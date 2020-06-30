@@ -6,8 +6,11 @@ use Illuminate\Http\Request;
 
 use App\User;
 use App\profile;
+use Illuminate\Support\Facades\Auth;
+
 class profileController extends Controller
 {
+
     /**
      * Display a listing of the resource.
      *
@@ -17,6 +20,7 @@ class profileController extends Controller
     {
         $profile = profile::where('user_id','=', $user->id)->get();
 
+    
         $data = [
             "Profile" => $profile,
             "email" => $user->email
@@ -41,9 +45,32 @@ class profileController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, User $user)
     {
-        //
+
+        $profile = profile::where('user_id','=', $user->id)->get();
+        
+        if($profile == null ){
+            profile::create([
+                "user_id" => $user->id,
+                "Full_name" => $request->input('Name'),
+                "avatar" => "default.png",
+                "biography" => $request->input('Bio')
+            ]);
+
+        }else{
+            profile::where('user_id',$user->id)
+                    ->update([
+                        "Full_name" => $request->input('Name'),
+                        "avatar" => "default.png",
+                        "biography" => $request->input('Bio')
+                    ]);
+                    
+            User::where('id',$user->id)
+                ->update(["email" => $request->input('email')]);
+        }
+
+        return back()->with('profile','Cambios realizados');
     }
 
     /**
@@ -52,9 +79,9 @@ class profileController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(User $user)
     {
-        //
+        return view('Profile.show');
     }
 
     /**
