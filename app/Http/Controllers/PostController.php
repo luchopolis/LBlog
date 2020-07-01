@@ -83,7 +83,7 @@ class PostController extends Controller
 
         $name = $request->Image->getClientOriginalName();
         if($request->hasFile('Image')){
-            if(Storage::disk('outLaravel')->exists($name)){
+            /*if(Storage::disk('outLaravel')->exists($name)){
                 Storage::disk('outLaravel')->delete($name);
                 $request->Image->storeAs('',$name,'outLaravel');
                 $this->Image = $name;
@@ -95,7 +95,13 @@ class PostController extends Controller
                 }else{
                     $this->Image = "Default.jpg";
                 }
+            }*/
+            if($request->Image->storeAs('postImages',$name,'outLaravel')){
+                $this->Image = $name;
+            }else{
+                $this->Image = "Default.jpg";
             }
+
         }else{
             return redirect('home');
         }

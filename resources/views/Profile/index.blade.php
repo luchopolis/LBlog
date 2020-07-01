@@ -51,7 +51,7 @@
                             <label for="">
                                 Biografia
                             </label>
-                        <textarea name="Bio" class="ProfileInput" id="Bio" rows="10">{{ $Profile[0]->biography }}</textarea>
+                        <textarea name="Bio" class="ProfileInput" id="Bio" rows="10">{{ $Profile[0] }}</textarea>
                         </div>
 
                         <input type="submit" id="save" name="save" class="btn btn-success" value="Guardar">
