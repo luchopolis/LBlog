@@ -96,7 +96,7 @@ class PostController extends Controller
                     $this->Image = "Default.jpg";
                 }
             }*/
-            if($request->Image->storeAs('postImages',$name,'outLaravel')){
+            if($request->Image->store('postImages',$name,'public')){
                 $this->Image = $name;
             }else{
                 $this->Image = "Default.jpg";
