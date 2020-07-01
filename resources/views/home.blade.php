@@ -16,7 +16,7 @@
 
                                     <div class="col-2">
                                         <a href="/post/{{ $post->id }}/edit" style="text-decoration: none">
-                                            <img src="{{ asset('storage/app/public/postImages') }}/{{ $post->Imagen }}" class="rounded img-post" width="100%" height="100%" alt="">
+                                            <img src="{{ url('images/'.$post->Imagen) }}" class="rounded img-post" width="100%" height="100%" alt="">
                                         </a>
                                     </div>
                                     <div class="col-7 col-sm-4">
