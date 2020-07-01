@@ -96,11 +96,18 @@ class PostController extends Controller
                     $this->Image = "Default.jpg";
                 }
             }*/
-            if($request->Image->storeAs('postImages',$name,'public')){
+            if(Storage::disk('public')->exists($name)){
+                Storage::disk('public')->delete($name);
+                $request->Image->storeAs('postImages',$name,'public');
                 $this->Image = $name;
-            }else{
-                $this->Image = "Default.jpg";
+            }else {
+                if($request->Image->storeAs('postImages',$name,'public')){
+                    $this->Image = $name;
+                }else{
+                    $this->Image = "Default.jpg";
+                }
             }
+           
 
         }else{
             return redirect('home');
