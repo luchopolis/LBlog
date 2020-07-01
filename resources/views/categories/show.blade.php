@@ -17,7 +17,7 @@
                                 <img class="card-img-top" style="height: 220px" src="{{ $AppBasePublic }}{{ $Publicacion->Imagen }}" alt="Card image cap">
                                 <div class="card-body">
                                     <h2 class="card-title">{{ $Publicacion->Title }}</h2>
-                                    <a href="/post/{{ $Publicacion->id }}" class="btn btn-primary">Seguir leyendo &rarr;</a>
+                                    <a href="/post/{{ $Publicacion->slug }}" class="btn btn-primary">Seguir leyendo &rarr;</a>
                                 </div>
 
                             </div>

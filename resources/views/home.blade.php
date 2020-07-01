@@ -4,7 +4,7 @@
 
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8 m-1 bg-white rounded shadow-sm">
+        <div class="col-md-8 m-1 rounded shadow-sm">
             @empty($myPosts)
             @else
                 @foreach($myPosts as $post)
@@ -20,7 +20,7 @@
                                         </a>
                                     </div>
                                     <div class="col-7 col-sm-4">
-                                        <a href="/post/{{ $post->id }}/edit" style="text-decoration: none" class="text-dark">
+                                        <a href="/post/{{ $post->id }}/edit" style="text-decoration: none" class="text-white">
                                             <div class="col-12">
                                                 <div>{{ $post->Title }}</div>
                                                 <div class="mt-1">{{ substr($post->created_at,0,10) }}</div>
@@ -32,14 +32,14 @@
                                 <div class="col-3 col-sm-4 float-right text-center">
                                     <div class="row">
                                         <div class="col-6 mt-2">
-                                            <button data-toggle="modal" class="btn text-dark" data-target="#deletemodal">
+                                            <button data-toggle="modal" class="btn text-white" data-target="#deletemodal">
                                                 <i class="fas fa-trash">
                                                 </i>
                                             </button>
                                         </div>
                                         <div class="col-6 mt-2">
-                                            <button class="btn text-dark" >
-                                                <a href="/post/{{ $post->slug }}" style="text-decoration: none" class="text-dark">
+                                            <button class="btn text-white" >
+                                                <a href="/post/{{ $post->slug }}" style="text-decoration: none" class="text-white">
                                                     <i class="fas fa-eye"></i>
                                                 </a>
                                             </button>

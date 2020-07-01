@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\post;
 use Illuminate\Http\Request;
 
 use App\User;
 use App\profile;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Config;
 
 class profileController extends Controller
 {
@@ -81,7 +83,15 @@ class profileController extends Controller
      */
     public function show(User $user)
     {
-        return view('Profile.show');
+        $profile = profile::where('user_id','=', $user->id)->get();
+        $lastPost = post::where('user_id','=',$user->id)->latest()->first();
+
+        $data = [
+            "Bio" => $profile[0]->biography,
+            "lastPost" => $lastPost,
+            "AppBasePublic" => Config::get('constans.AppBasePublic')
+        ];
+        return view('Profile.show',$data);
     }
 
     /**
