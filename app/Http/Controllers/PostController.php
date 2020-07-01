@@ -107,7 +107,7 @@ class PostController extends Controller
                     $this->Image = "Default.jpg";
                 }
             }*/
-            dd($request->Image->store('postImages'));
+            dd($request->Image->storeAs('postImages',$name));
            
 
         }else{
