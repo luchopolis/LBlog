@@ -96,7 +96,7 @@ class PostController extends Controller
                     $this->Image = "Default.jpg";
                 }
             }*/
-            if(Storage::disk('public')->exists($name)){
+            /*if(Storage::disk('public')->exists($name)){
                 Storage::disk('public')->delete($name);
                 $request->Image->storeAs('postImages',$name,'public');
                 $this->Image = $name;
@@ -106,14 +106,15 @@ class PostController extends Controller
                 }else{
                     $this->Image = "Default.jpg";
                 }
-            }
+            }*/
+            dd($request->Image->store('postImages'));
            
 
         }else{
-            return redirect('home');
+            //return redirect('home');
         }
         //dd(Storage::disk('outLaravel')->exists($name));
-        $NewPost = new post();
+        /*$NewPost = new post();
         $NewPost->Title = $request->input('title');
         $NewPost->Extract = $request->input('extract');
         $NewPost->Content = $request->input('content');
@@ -121,10 +122,10 @@ class PostController extends Controller
         $NewPost->user_id = $userId;
         $NewPost->category_id = $request->input('category');
         $NewPost->slug = Str::slug($request->input('title','-'));
-        $NewPost->save();
+        $NewPost->save();*/
 
         //Enviar una respuesta con redirect, forma parte de un response
-        return redirect('home')->with('newPost','Nuevo post creado con exito');
+        //return redirect('home')->with('newPost','Nuevo post creado con exito');
     }
 
     /**
