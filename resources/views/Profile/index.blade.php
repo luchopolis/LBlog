@@ -16,13 +16,13 @@
                         <h6>
                             Account Info
                         </h6>
-                       
+                        <p><a href="/profile/{{ Auth::user() }}/show"><i class="far fa-id-badge"></i> View public profile </a></p>
                     </div>
                   
                 </div>
 
                 <div class="formProfile">
-                <form method="POST" action="/profile/{{ Auth::user()->id }}">
+                <form method="POST" action="/profile/{{ Auth::user() }}">
                         @csrf
                         <div class="containerInputs">
                             <div class="ProfileInputBox">
