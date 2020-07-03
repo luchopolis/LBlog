@@ -32,7 +32,7 @@
                                     </label>
                                 </div>
                                 
-                            <input class="ProfileInput" type="text" name="Name" placeholder="Name" value="{{ $Profile }}">
+                            <input class="ProfileInput" type="text" name="Name" placeholder="Name" value="{{ $Profile->Full_name }}">
                             </div>
                             <div class="ProfileInputBox">
                                 <div>
@@ -58,7 +58,7 @@
                         
                     </form>  
 
-                   {{ dd($Bio) }}
+             
                 </div>
 
                
