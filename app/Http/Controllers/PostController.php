@@ -72,7 +72,7 @@ class PostController extends Controller
         //echo $this->Image = basename($request->file('Image')->getClientOriginalName());
         //$request->Image->store('example','outLaravel');
 
-        
+
 
         $this->validate($request,[
             "title" => "required",
@@ -82,6 +82,8 @@ class PostController extends Controller
         ]);
 
         $name = $request->Image->getClientOriginalName();
+        $request->Image->store($name);
+        
         if($request->hasFile('Image')){
             /*if(Storage::disk('outLaravel')->exists($name)){
                 Storage::disk('outLaravel')->delete($name);
