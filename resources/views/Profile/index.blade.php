@@ -31,8 +31,12 @@
                                         Name
                                     </label>
                                 </div>
-                                
-                            <input class="ProfileInput" type="text" name="Name" placeholder="Name" value="{{ $Profile[0]->Full_name }}">
+                            @empty($Profile[0])
+                                    <input class="ProfileInput" type="text" name="Name" placeholder="Name" value="">
+                                @else
+                                <input class="ProfileInput" type="text" name="Name" placeholder="Name" value="{{ $Profile[0]->Full_Name}}">
+                            @endempty    
+                            
                             </div>
                             <div class="ProfileInputBox">
                                 <div>
