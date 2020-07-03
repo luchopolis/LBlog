@@ -55,7 +55,7 @@ class profileController extends Controller
         if($profile == null ){
             profile::create([
                 "user_id" => $user->id,
-                "Full_name" => $request->input('Name'),
+                "Full_Name" => $request->input('Name'),
                 "avatar" => "default.png",
                 "biography" => $request->input('Bio')
             ]);
@@ -63,7 +63,7 @@ class profileController extends Controller
         }else{
             profile::where('user_id',$user->id)
                     ->update([
-                        "Full_name" => $request->input('Name'),
+                        "Full_Name" => $request->input('Name'),
                         "avatar" => "default.png",
                         "biography" => $request->input('Bio')
                     ]);
