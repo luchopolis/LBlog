@@ -2,5 +2,11 @@
     width: 100%;
     height: auto;
     border-radius: 1%;
+    background-color: #FFF;
     box-shadow:0px -5px 0px 0px rgba(86, 150, 3, 0.6);
+}
+
+.card-header {
+    text-align: center;
+    background-color: royalblue;
 }
