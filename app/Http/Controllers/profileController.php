@@ -91,7 +91,7 @@ class profileController extends Controller
         $profile = profile::where('user_id','=', $user->id)->get();
         $lastPost = post::where('user_id','=',$user->id)->latest()->first();
 
-        if(empty($profile)){
+        if(empty($profile[0])){
             return view('Profile.userLost');
         }else {
             $data = [
