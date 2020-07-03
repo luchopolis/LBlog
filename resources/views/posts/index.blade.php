@@ -17,7 +17,7 @@
                         @empty($Publicacion->Imagen)
                             <img class="card-img-top" src="http://placehold.it/750x300" alt="Card image cap">
                         @else
-                            <img class="card-img-top" src=" {{ asset("Storage/$Publicacion->Imagen") }}" alt="Card image cap">
+                            <img class="card-img-top" src=" {{ asset("Storage/Selección_050.png") }}" alt="Card image cap">
                         @endempty
 
                         <div class="card-body">
