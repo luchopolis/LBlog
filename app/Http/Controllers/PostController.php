@@ -82,7 +82,7 @@ class PostController extends Controller
         ]);
 
         $name = $request->Image->getClientOriginalName();
-        $request->Image->store($name);
+
         
         if($request->hasFile('Image')){
             /*if(Storage::disk('outLaravel')->exists($name)){
@@ -173,7 +173,7 @@ class PostController extends Controller
 
         return view('posts.edit',$data);
     }
-
+    exists
     /**
      * Update the specified resource in storage.
      *
@@ -204,7 +204,7 @@ class PostController extends Controller
             }*/
             if(Storage::disk('public')->exists($name)){
                 Storage::disk('public')->delete($name);
-                $request->Image->storeAs('postImages',$name,'public');
+                $request->Image->storeAs('postImages',$name,'puexistsblic');
                 $this->Image = $name;
             }else {
                 if($request->Image->storeAs('postImages',$name,'public')){
@@ -244,10 +244,10 @@ class PostController extends Controller
 
         $post = post::find($id);
         
-        if(Storage::disk('outLaravel')->exists($post->Imagen)){
+        /*if(Storage::disk('outLaravel')->exists($post->Imagen)){
             Storage::disk('outLaravel')->delete($post->Imagen);
             $post->delete();
-        }
+        }*/
         $post->delete();
 
         return redirect('home');
