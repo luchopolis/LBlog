@@ -22,7 +22,7 @@
                 </div>
 
                 <div class="formProfile">
-                <form method="POST" action="/profile/{{ Auth::user() }}">
+                <form method="POST" action="/profile/{{ Auth::user()->id }}">
                         @csrf
                         <div class="containerInputs">
                             <div class="ProfileInputBox">
