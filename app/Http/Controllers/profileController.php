@@ -51,17 +51,9 @@ class profileController extends Controller
     {
 
         $profile = profile::where('user_id','=', $user->id)->get();
-        
 
-    
-            profile::create([
-                "user_id" => $user->id,
-                "Full_Name" => $request->input('Name'),
-                "avatar" => "default.png",
-                "biography" => $request->input('Bio')
-            ]);
         
-        /*
+        
         if($profile == null ){
             profile::create([
                 "user_id" => $user->id,
@@ -84,7 +76,7 @@ class profileController extends Controller
 
         return back()->with('profile','Cambios realizados');
 
-        */
+        
     }
 
     /**
