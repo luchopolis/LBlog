@@ -60,6 +60,8 @@ class profileController extends Controller
                 "avatar" => "default.png",
                 "biography" => $request->input('Bio')
             ]);
+        }else {
+            echo "No esta vacio";
         }
         /*
         if($profile == null ){
