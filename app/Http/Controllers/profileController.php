@@ -20,8 +20,8 @@ class profileController extends Controller
      */
     public function index(User $user)
     {
-        $this->middleware('Auth');
-        
+        $this->middleware('auth');
+
         $profile = profile::where('user_id','=', $user->id)->get();
 
     
