@@ -23,7 +23,7 @@
     <!-- FLoatBUtton Style-->
     <link href="{{ asset('css/floatbutton.css') }}" rel="stylesheet">
 
-     
+    <link href="{{ asset('css/login.css') }}" rel="stylesheet">
 </head>
 <body>
     <div id="app">
