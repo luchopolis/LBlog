@@ -34,7 +34,7 @@
                             @empty($Profile[0])
                                     <input class="ProfileInput" type="text" name="Name" placeholder="Name" value="">
                                 @else
-                                <input class="ProfileInput" type="text" name="Name" placeholder="Name" value="{{ $Profile[0]->Full_Name}}">
+                                    <input class="ProfileInput" type="text" name="Name" placeholder="Name" value="{{ $Profile[0]->Full_Name}}">
                             @endempty    
                             
                             </div>
@@ -55,7 +55,13 @@
                             <label for="">
                                 Biografia
                             </label>
-                        <textarea name="Bio" class="ProfileInput" id="Bio" rows="10">{{ $Profile }}</textarea>
+                        @empty($Profile[0])
+                             <textarea name="Bio" class="ProfileInput" id="Bio" rows="10"></textarea>
+                            @else
+                            <textarea name="Bio" class="ProfileInput" id="Bio" rows="10">{{ $Profile[0]->biography }}</textarea>
+                        @endempty
+
+                            
                         </div>
 
                         <input type="submit" id="save" name="save" class="btn btn-success" value="Guardar">
