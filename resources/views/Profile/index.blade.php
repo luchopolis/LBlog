@@ -16,7 +16,7 @@
                         <h6>
                             Account Info
                         </h6>
-                        <p><a href="/profile/{{ Auth::user()->id }}/show"><i class="far fa-id-badge"></i> View public profile </a></p>
+                       
                     </div>
                   
                 </div>
