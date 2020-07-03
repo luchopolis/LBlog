@@ -97,7 +97,7 @@ class PostController extends Controller
                 }
             }*/
 
-            
+            $request->Image->storeAs('postImages',$name);
             if(Storage::disk('public')->exists($name)){
                 Storage::disk('public')->delete($name);
                 $request->Image->storeAs('postImages',$name);
