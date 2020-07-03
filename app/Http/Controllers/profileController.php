@@ -53,16 +53,14 @@ class profileController extends Controller
         $profile = profile::where('user_id','=', $user->id)->get();
         
 
-        if(empty($profile)){
+    
             profile::create([
                 "user_id" => $user->id,
                 "Full_Name" => $request->input('Name'),
                 "avatar" => "default.png",
                 "biography" => $request->input('Bio')
             ]);
-        }else {
-            echo "No esta vacio";
-        }
+        
         /*
         if($profile == null ){
             profile::create([
