@@ -20,8 +20,7 @@
    <link href="{{ asset('css/all.css') }}" rel="stylesheet">
     <!-- Styles -->
    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <!-- FLoatBUtton Style-->
-    <link href="{{ asset('css/floatbutton.css') }}" rel="stylesheet">
+    
 
     <link href="{{ asset('css/login.css') }}" rel="stylesheet">
 </head>
