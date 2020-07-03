@@ -173,7 +173,7 @@ class PostController extends Controller
 
         return view('posts.edit',$data);
     }
-    exists
+
     /**
      * Update the specified resource in storage.
      *
