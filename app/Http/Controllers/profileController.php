@@ -51,7 +51,9 @@ class profileController extends Controller
     {
 
         $profile = profile::where('user_id','=', $user->id)->get();
-        
+        dd($profile);
+
+        /*
         if($profile == null ){
             profile::create([
                 "user_id" => $user->id,
@@ -73,6 +75,8 @@ class profileController extends Controller
         }
 
         return back()->with('profile','Cambios realizados');
+
+        */
     }
 
     /**
