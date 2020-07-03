@@ -1,1 +1,1 @@
-<img src="{{ asset('css/notF.png') }}" alt="">
+<img src="{{ asset('src/notF.png') }}" alt="">
