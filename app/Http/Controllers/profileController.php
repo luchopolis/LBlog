@@ -61,14 +61,14 @@ class profileController extends Controller
             ]);
 
         }else{
-            profile::where('user_id',$user->id)
+            profile::where('user_id','=',$user->id)
                     ->update([
                         "Full_Name" => $request->input('Name'),
                         "avatar" => "default.png",
                         "biography" => $request->input('Bio')
                     ]);
                     
-            User::where('id',$user->id)
+            User::where('id','=',$user->id)
                 ->update(["email" => $request->input('email')]);
         }
 
