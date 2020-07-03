@@ -93,14 +93,16 @@ class profileController extends Controller
 
         if(empty($profile)){
             return view('Profile.userLost');
+        }else {
+            $data = [
+                "Bio" => $profile[0]->biography,
+                "lastPost" => $lastPost,
+                "AppBasePublic" => Config::get('constans.AppBasePublic')
+            ];
+            return view('Profile.show',$data);
         }
 
-        $data = [
-            "Bio" => $profile[0]->biography,
-            "lastPost" => $lastPost,
-            "AppBasePublic" => Config::get('constans.AppBasePublic')
-        ];
-        return view('Profile.show',$data);
+       
     }
 
     /**
