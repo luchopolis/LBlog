@@ -91,6 +91,7 @@ class PostController extends Controller
         
         if($request->hasFile('Image')){
 
+            /*
             if(Storage::disk('outLaravel')->exists($name)){
                 Storage::disk('outLaravel')->delete($name);
                 $request->Image->storeAs('',$name,'outLaravel');
@@ -103,12 +104,12 @@ class PostController extends Controller
                 }else{
                     $this->Image = "Default.jpg";
                 }
-            }
+            } */
 
 
-            /*
-                HEROKU CODIGO INTENTO
+            
             $request->Image->storeAs('postImages',$name);
+            
             if(Storage::disk('public')->exists($name)){
                 Storage::disk('public')->delete($name);
                 $request->Image->storeAs('postImages',$name);
@@ -119,7 +120,7 @@ class PostController extends Controller
                 }else{
                     $this->Image = "Default.jpg";
                 }
-            }*/
+            }
 
         }else{
             return redirect('home');
@@ -199,6 +200,8 @@ class PostController extends Controller
         $name = "";
 
         if($request->hasFile('Image')){
+
+            /*
             $name = $request->Image->getClientOriginalName();
             if(Storage::disk('outLaravel')->exists($name)){
                 Storage::disk('outLaravel')->delete($name);
@@ -210,10 +213,9 @@ class PostController extends Controller
                 }else{
                     $this->Image = $lastImage->Imagen;
                 }
-            }
+            }*/
 
-            /*
-                    HEROKU CODIGO
+            
             if(Storage::disk('public')->exists($name)){
                 Storage::disk('public')->delete($name);
                 $request->Image->storeAs('postImages',$name,'puexistsblic');
@@ -224,7 +226,7 @@ class PostController extends Controller
                 }else{
                     $this->Image = "Default.jpg";
                 }
-            }*/
+            }
         }else{
             $this->Image = $lastImage->Imagen;  
         }
@@ -256,10 +258,11 @@ class PostController extends Controller
 
         $post = post::find($id);
         
+        /*
         if(Storage::disk('outLaravel')->exists($post->Imagen)){
             Storage::disk('outLaravel')->delete($post->Imagen);
             $post->delete();
-        }
+        }*/
         $post->delete();
 
         return redirect('home');
