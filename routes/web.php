@@ -27,8 +27,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('/categories','CategoryController');
 //-- Post --
 Route::resource('/post','PostController');
-//|--- Preview ---
-Route::resource('/preview','PreviewController');
+
 
 // |--------------- END RESOURCES -------------- ||
 
@@ -68,7 +67,19 @@ Auth::routes();
 
 
 
-//Route::post('/preview/post','PreviewController@previewPost');
+
+/*
+*/
+
+//PREFIX
+/*
+Route::group(['prefix' => "api"], function(){
+    Route::apiResource('/profile','profileController');
+});
+
+*/
+
+
 
 //Route::post('/prueba','TinyMceController@store');
 

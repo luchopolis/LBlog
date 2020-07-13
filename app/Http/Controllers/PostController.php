@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Storage;
 
 use Illuminate\Support\Str;
 
+use App\Http\Requests\post as postRequest;
 class PostController extends Controller
 {
 
@@ -62,7 +63,7 @@ class PostController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, $userId)
+    public function store(postRequest $request, $userId)
     {
         $this->Image = null;
 
@@ -73,13 +74,17 @@ class PostController extends Controller
         //$request->Image->store('example','outLaravel');
 
 
-
+        /*
         $this->validate($request,[
             "title" => "required",
             "extract" => "required",
             "content" => "required",
             "category" => "required"
         ]);
+        */
+
+        //Utilizando un request para validar
+        $request->validated();
 
         $name = $request->Image->getClientOriginalName();
 

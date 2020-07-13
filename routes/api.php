@@ -4,6 +4,10 @@ use App\post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Resources\post as postResource;
+
+use App\Http\Resources\postCollection;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -21,7 +25,9 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 
 Route::get('/posts',function(){
-    return response()->json(post::all());
+
+    return response()->json(new postCollection(post::orderBy('user_id','desc')->get()));
+    //return response()->json(post::all());
 });
 
 Route::post('/posts',function(Request $request){
@@ -39,10 +45,16 @@ Route::post('/posts',function(Request $request){
     return response()->json(post::all(),200);
 });
 
-Route::get('/post/{slug}',function($slug){
+/*Route::get('/post/{slug}',function($slug){
     $post = post::where('slug','=',$slug)->get();
 
     return response()->json($post);
+}); */
+
+Route::get('/post/{post}',function(post $post){
+
+    return response()->json(new postResource($post));
+
 });
 
 Route::put('/post/{id}',function($id,Request $request){
